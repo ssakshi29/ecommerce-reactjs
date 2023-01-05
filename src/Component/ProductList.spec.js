@@ -6,70 +6,109 @@ import {
   waitForElement,
 } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import Enzyme, { shallow } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-
-import { waitFor } from "@testing-library/dom";
-
-Enzyme.configure({ adapter: new Adapter() });
 
 let handleItems = jest.fn();
-
+const fetchProducts = jest.fn();
 describe("ProductList Component", () => {
+  const products = [
+    {
+      id: 1,
+      title: "iPhone 9",
+      description: "An apple mobile which is nothing like apple",
+      price: 549,
+      rating: 4.69,
+      brand: "Apple",
+      images: [
+        "https://i.dummyjson.com/data/products/1/1.jpg",
+        "https://i.dummyjson.com/data/products/1/2.jpg",
+        "https://i.dummyjson.com/data/products/1/3.jpg",
+        "https://i.dummyjson.com/data/products/1/4.jpg",
+        "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+      ],
+    },
+  ];
+
   it("matches snapshot", () => {
-    const wrapper = render(<ProductsList handleItems={handleItems} />);
+    const wrapper = render(
+      <ProductsList
+        handleItems={handleItems}
+        fetchProducts={fetchProducts}
+        products={products}
+      />
+    );
+
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("should call the handleItems function when the add to cart button is clicked", async () => {
-    const { getAllByTestId } = render(
-      <ProductsList handleItems={handleItems} />
+  it("should call the handleItems function when the add to cart button is clicked", () => {
+    const wrapper = render(
+      <ProductsList
+        handleItems={handleItems}
+        fetchProducts={fetchProducts}
+        products={products}
+      />
     );
-    const addButton = await waitForElement(() => getAllByTestId("add-to-cart"));
+    const addButton = wrapper.getAllByTestId("add-to-cart");
     addButton.forEach((button) => {
       fireEvent.click(button);
       expect(handleItems).toHaveBeenCalled();
     });
   });
 
-  // it("should call the handleShowDetails function when the show button is clicked", async () => {
-  //   const { getAllByTestId } = render(
-  //     <ProductsList handleItems={handleItems} />
+  it("should call the handleItems function when the add to cart button is clicked", () => {
+    const wrapper = render(
+      <ProductsList
+        handleItems={handleItems}
+        fetchProducts={fetchProducts}
+        products={products}
+      />
+    );
+    const addButton = wrapper.getAllByTestId("show-details-button");
+    // addButton.forEach((button) => {
+    expect(addButton[0]).toHaveTextContent("show details");
+    fireEvent.click(addButton[0]);
+    //expect(handleShowDetails)
+    expect(addButton[0]).toHaveTextContent("hide details");
+    // });
+  });
+
+  // it(" should have been called fetchproducts", () => {
+  //   const wrapper = render(
+  //     <ProductsList
+  //       handleItems={handleItems}
+  //       fetchProducts={fetchProducts}
+  //       products={products}
+  //     />
   //   );
-  //   const showButton = await waitForElement(() =>
-  //     getAllByTestId("show-details-button")
-  //   );
-  //   showButton.forEach((button) => {
-  //     fireEvent.click(button);
-  //     const handleShow = handleShowDetails();
-  //     // expect(handleShowDetails).toHaveBeenCalled();
-  //     expect(handleShow).toBe(1);
-  //     //handleShowDetails.mockClear();
-  //   });
+  //   expect(fetchProducts).toHaveBeenCalled();
   // });
 
-  // it("should call the handleShowDetails function when the show button is clicked", () => {
-  //   const wrapper = shallow(<ProductsList handleItems={handleItems} />);
-  //   // const element = wrapper.find("Button");
-  //   // console.log(element.debug());
-  //   // element.simulate("click");
-  //   // console.log(element.length);
-  //   // const element1 = wrapper.find("ProductList");
-
-  //   expect(element1.length).toBe(0);
-  // });
-
-  it("should ", async () => {
-    const handleShowDetails = jest.fn();
+  it("should render the add-to-cart button", () => {
+    const products = [
+      {
+        id: 1,
+        title: "iPhone 9",
+        description: "An apple mobile which is nothing like apple",
+        price: 549,
+        rating: 4.69,
+        brand: "Apple",
+        images: [
+          "https://i.dummyjson.com/data/products/1/1.jpg",
+          "https://i.dummyjson.com/data/products/1/2.jpg",
+          "https://i.dummyjson.com/data/products/1/3.jpg",
+          "https://i.dummyjson.com/data/products/1/4.jpg",
+          "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+        ],
+      },
+    ];
     const { getAllByTestId } = render(
-      <ProductsList handleItems={handleItems} />
+      <ProductsList
+        handleItems={handleItems}
+        fetchProducts={fetchProducts}
+        products={products}
+      />
     );
-    const showButton = await waitForElement(() =>
-      getAllByTestId("show-details-button")
-    );
-    showButton.forEach((button) => {
-      fireEvent.click(button);
-      expect(handleShowDetails).toHaveBeenCalledWith(0);
-    });
+
+    expect(getAllByTestId("add-to-cart")).toBeTruthy();
   });
 });

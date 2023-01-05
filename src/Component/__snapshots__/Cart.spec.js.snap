@@ -82,6 +82,7 @@ Object {
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                  data-testid="remove"
                   tabindex="0"
                   type="button"
                 >
@@ -179,6 +180,7 @@ Object {
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                data-testid="remove"
                 tabindex="0"
                 type="button"
               >

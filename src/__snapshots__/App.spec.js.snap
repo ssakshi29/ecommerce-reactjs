@@ -46,8 +46,13 @@ Object {
             </a>
           </div>
         </header>
-        <div>
-          Mocked Product Component
+        <div
+          class="makeStyles-root-1"
+          data-testid="product"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+          />
         </div>
       </div>
     </div>
@@ -94,8 +99,13 @@ Object {
           </a>
         </div>
       </header>
-      <div>
-        Mocked Product Component
+      <div
+        class="makeStyles-root-1"
+        data-testid="product"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+        />
       </div>
     </div>
   </div>,

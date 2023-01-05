@@ -25,6 +25,7 @@ function Cart({ items, handleRemoveFromCart }) {
           </TableRow>
         </TableHead>
         <TableBody>
+          {console.log("abc" + combinedItems)}
           {combinedItems.map((item) => (
             <TableRow key={item.id}>
               <TableCell>{item.title}</TableCell>
@@ -32,7 +33,10 @@ function Cart({ items, handleRemoveFromCart }) {
               <TableCell>{item.quantity}</TableCell>
               <TableCell>${item.total}</TableCell>
               <TableCell>
-                <Button onClick={() => handleRemoveFromCart(item)}>
+                <Button
+                  data-testid="remove"
+                  onClick={() => handleRemoveFromCart(item)}
+                >
                   Remove
                 </Button>
               </TableCell>
