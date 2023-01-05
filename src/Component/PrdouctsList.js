@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Grid, Paper, makeStyles, Button } from "@material-ui/core";
 import ProductDetails from "./ProductDetails";
+import { UserContext } from "../App";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -13,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const ProductsList = ({ handleItems, fetchProducts, products }) => {
+export const ProductsList = ({ fetchProducts, products }) => {
+  const { handleItems } = useContext(UserContext);
   const classes = useStyles();
 
   const [visible, setVisible] = useState(false);
@@ -29,7 +31,7 @@ export const ProductsList = ({ handleItems, fetchProducts, products }) => {
     setVisible(!visible);
   };
 
-  console.log("abc", products);
+  // console.log("abc", products);
 
   return (
     <div data-testid="product" className={classes.root}>

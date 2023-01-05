@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Table,
   TableBody,
@@ -9,9 +9,11 @@ import {
   Button,
 } from "@material-ui/core";
 import { combineitems } from "./combineitems";
+import { UserContext } from "../App";
 
-function Cart({ items, handleRemoveFromCart }) {
+function Cart({ items }) {
   const combinedItems = combineitems(items);
+  const { handleRemoveFromCart } = useContext(UserContext);
   return (
     <Paper>
       <Table>
@@ -25,7 +27,6 @@ function Cart({ items, handleRemoveFromCart }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {console.log("abc" + combinedItems)}
           {combinedItems.map((item) => (
             <TableRow key={item.id}>
               <TableCell>{item.title}</TableCell>

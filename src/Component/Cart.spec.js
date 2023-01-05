@@ -1,7 +1,8 @@
 import Cart from "./Cart";
-import { render, fireEvent, screen, shallow } from "@testing-library/react";
-
+import { render, fireEvent } from "@testing-library/react";
+import React from "react";
 import "@testing-library/jest-dom/extend-expect";
+import { UserContext } from "../App";
 
 const handleRemoveFromCart = jest.fn();
 
@@ -24,11 +25,15 @@ describe("Cart Component", () => {
   });
 
   it("should call the handleRemoveFromCart function when the remove button is clicked", () => {
+    const handleRemoveFromCart = jest.fn();
     const items = [{ id: 1, title: "Item 1", price: 10, quantity: 1 }];
     const { getByText } = render(
-      <Cart items={items} handleRemoveFromCart={handleRemoveFromCart} />
+      <UserContext.Provider value={{ handleRemoveFromCart }}>
+        <Cart items={items} />
+      </UserContext.Provider>
     );
     fireEvent.click(getByText("Remove"));
+    expect(getByText("Remove")).toBeInTheDocument();
     expect(handleRemoveFromCart).toHaveBeenCalledWith({
       id: 1,
       title: "Item 1",

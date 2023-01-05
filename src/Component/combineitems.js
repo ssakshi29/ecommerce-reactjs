@@ -5,7 +5,7 @@ export function combineitems(items) {
 
   items.forEach((item) => {
     if (combineitem[item.id]) {
-      combineitem[item.id].quantity += 1;
+      combineitem[item.id].quantity = combineitem[item.id].quantity + 1;
     } else {
       combineitem[item.id] = { ...item, quantity: 1 };
     }

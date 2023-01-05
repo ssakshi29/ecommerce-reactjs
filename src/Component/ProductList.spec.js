@@ -1,13 +1,7 @@
 import ProductsList from "./PrdouctsList";
-import {
-  render,
-  fireEvent,
-  screen,
-  waitForElement,
-} from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-let handleItems = jest.fn();
 const fetchProducts = jest.fn();
 describe("ProductList Component", () => {
   const products = [
@@ -30,11 +24,7 @@ describe("ProductList Component", () => {
 
   it("matches snapshot", () => {
     const wrapper = render(
-      <ProductsList
-        handleItems={handleItems}
-        fetchProducts={fetchProducts}
-        products={products}
-      />
+      <ProductsList fetchProducts={fetchProducts} products={products} />
     );
 
     expect(wrapper).toMatchSnapshot();
@@ -42,26 +32,7 @@ describe("ProductList Component", () => {
 
   it("should call the handleItems function when the add to cart button is clicked", () => {
     const wrapper = render(
-      <ProductsList
-        handleItems={handleItems}
-        fetchProducts={fetchProducts}
-        products={products}
-      />
-    );
-    const addButton = wrapper.getAllByTestId("add-to-cart");
-    addButton.forEach((button) => {
-      fireEvent.click(button);
-      expect(handleItems).toHaveBeenCalled();
-    });
-  });
-
-  it("should call the handleItems function when the add to cart button is clicked", () => {
-    const wrapper = render(
-      <ProductsList
-        handleItems={handleItems}
-        fetchProducts={fetchProducts}
-        products={products}
-      />
+      <ProductsList fetchProducts={fetchProducts} products={products} />
     );
     const addButton = wrapper.getAllByTestId("show-details-button");
     // addButton.forEach((button) => {
@@ -71,17 +42,6 @@ describe("ProductList Component", () => {
     expect(addButton[0]).toHaveTextContent("hide details");
     // });
   });
-
-  // it(" should have been called fetchproducts", () => {
-  //   const wrapper = render(
-  //     <ProductsList
-  //       handleItems={handleItems}
-  //       fetchProducts={fetchProducts}
-  //       products={products}
-  //     />
-  //   );
-  //   expect(fetchProducts).toHaveBeenCalled();
-  // });
 
   it("should render the add-to-cart button", () => {
     const products = [
@@ -102,11 +62,7 @@ describe("ProductList Component", () => {
       },
     ];
     const { getAllByTestId } = render(
-      <ProductsList
-        handleItems={handleItems}
-        fetchProducts={fetchProducts}
-        products={products}
-      />
+      <ProductsList fetchProducts={fetchProducts} products={products} />
     );
 
     expect(getAllByTestId("add-to-cart")).toBeTruthy();

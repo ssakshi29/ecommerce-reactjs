@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">78.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/15</span>
+                <span class='fraction'>11/14</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/5</span>
+                <span class='fraction'>3/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">78.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/15</span>
+                <span class='fraction'>11/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -115,9 +115,29 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -128,14 +148,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
@@ -146,6 +166,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,20 +204,25 @@ import React, { useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Cart from "./Component/Cart";
 &nbsp;
+export const UserContext = React.createContext({
+  handleItems: <span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; {},
+  handleRemoveFromCart: <span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; {},
+});
+&nbsp;
 function App() {
   const [items, setItems] = useState([]);
   const [products, setProducts] = useState([]);
 &nbsp;
   const handleItems = (item) =&gt; {
     setItems([...items, item]);
-    console.log(items);
+    // console.log(items);
   };
 &nbsp;
   const fetchProducts = async () =&gt; {
     const res = await fetch("https://dummyjson.com/products");
     const data = await res.json();
     setProducts(data.products);
-    console.log("qwe");
+    // console.log("qwe");
   };
 &nbsp;
   const handleRemoveFromCart = <span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; {
@@ -198,23 +233,33 @@ function App() {
   };
 &nbsp;
   return (
-    &lt;div&gt;
-      &lt;BrowserRouter&gt;
-        &lt;Header /&gt;
-        &lt;Switch&gt;
-          &lt;Route exact path="/"&gt;
-            &lt;Products
-              fetchProducts={fetchProducts}
-              products={products}
-              handleItems={handleItems}
-            /&gt;
-          &lt;/Route&gt;
-          &lt;Route path="/cart"&gt;
-            &lt;Cart items={items} handleRemoveFromCart={handleRemoveFromCart} /&gt;
-          &lt;/Route&gt;
-        &lt;/Switch&gt;
-      &lt;/BrowserRouter&gt;
-    &lt;/div&gt;
+    &lt;UserContext.Provider
+      value={{
+        handleItems: handleItems,
+        handleRemoveFromCart: handleRemoveFromCart,
+      }}
+    &gt;
+      &lt;div&gt;
+        &lt;BrowserRouter&gt;
+          &lt;Header /&gt;
+          &lt;Switch&gt;
+            &lt;Route exact path="/"&gt;
+              &lt;Products
+                fetchProducts={fetchProducts}
+                products={products}
+                handleItems={handleItems}
+              /&gt;
+            &lt;/Route&gt;
+            &lt;Route path="/cart"&gt;
+              &lt;Cart
+                items={items}
+                // handleRemoveFromCart={handleRemoveFromCart}
+              /&gt;
+            &lt;/Route&gt;
+          &lt;/Switch&gt;
+        &lt;/BrowserRouter&gt;
+      &lt;/div&gt;
+    &lt;/UserContext.Provider&gt;
   );
 }
 &nbsp;
@@ -226,7 +271,7 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-01-05T06:44:18.546Z
+                at 2023-01-05T07:38:25.940Z
             </div>
         <script src="../prettify.js"></script>
         <script>
