@@ -11,60 +11,7 @@ Object {
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
-        >
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
-          >
-            <div
-              class="MuiPaper-root makeStyles-paper-2 MuiPaper-elevation1 MuiPaper-rounded"
-            >
-              <img
-                loading="lazy"
-                src="https://i.dummyjson.com/data/products/1/1.jpg"
-                srcset="https://i.dummyjson.com/data/products/1/1.jpg?w=164&h=164&fit=crop&auto=format&dpr=2 2x"
-              />
-              <h3>
-                iPhone 9
-              </h3>
-              <p>
-                $
-                549
-              </p>
-              <div>
-                <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text"
-                  data-testid="show-details-button"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiButton-label"
-                  >
-                    show details
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </div>
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text"
-                data-testid="add-to-cart"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="MuiButton-label"
-                >
-                  Add to Cart
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
-            </div>
-          </div>
-        </div>
+        />
       </div>
     </div>
   </body>,
@@ -75,60 +22,7 @@ Object {
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
-      >
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
-        >
-          <div
-            class="MuiPaper-root makeStyles-paper-2 MuiPaper-elevation1 MuiPaper-rounded"
-          >
-            <img
-              loading="lazy"
-              src="https://i.dummyjson.com/data/products/1/1.jpg"
-              srcset="https://i.dummyjson.com/data/products/1/1.jpg?w=164&h=164&fit=crop&auto=format&dpr=2 2x"
-            />
-            <h3>
-              iPhone 9
-            </h3>
-            <p>
-              $
-              549
-            </p>
-            <div>
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text"
-                data-testid="show-details-button"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="MuiButton-label"
-                >
-                  show details
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
-            </div>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text"
-              data-testid="add-to-cart"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label"
-              >
-                Add to Cart
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
+      />
     </div>
   </div>,
   "debug": [Function],

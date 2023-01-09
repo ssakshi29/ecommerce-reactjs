@@ -37,9 +37,7 @@ describe("App component", () => {
     const addToCartButtons = await waitForElement(() =>
       findAllByTestId("add-to-cart")
     );
-
     if (addToCartButtons.length > 0) {
-      console.log("sd" + addToCartButtons.length);
       fireEvent.click(addToCartButtons[0]);
       expect(addToCartButtons).toHaveLength(30);
     }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Grid, Paper, makeStyles, Button } from "@material-ui/core";
 import ProductDetails from "./ProductDetails";
-import { UserContext } from "../App";
+import { UserContext } from "../UserContext";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -14,9 +14,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const ProductsList = ({ fetchProducts, products }) => {
+export const ProductsList = () => {
   const { handleItems } = useContext(UserContext);
   const classes = useStyles();
+  const [products, setProducts] = useState([]);
+
+  const fetchProducts = async () => {
+    const res = await fetch("https://dummyjson.com/products");
+    const data = await res.json();
+    setProducts(data.products);
+  };
 
   const [visible, setVisible] = useState(false);
 
@@ -24,14 +31,12 @@ export const ProductsList = ({ fetchProducts, products }) => {
 
   useEffect(() => {
     fetchProducts();
-  }, [fetchProducts]);
+  }, []);
 
   const handleShowDetails = (productId) => {
     setSelectedProductId(productId);
     setVisible(!visible);
   };
-
-  // console.log("abc", products);
 
   return (
     <div data-testid="product" className={classes.root}>

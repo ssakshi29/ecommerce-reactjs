@@ -9,11 +9,13 @@ import {
   Button,
 } from "@material-ui/core";
 import { combineitems } from "./combineitems";
-import { UserContext } from "../App";
+import { UserContext } from "../UserContext";
 
-function Cart({ items }) {
+function Cart() {
+  const { handleRemoveFromCart, items } = useContext(UserContext);
+  // console.log(handleRemoveFromCart);
+  // console.log(items);
   const combinedItems = combineitems(items);
-  const { handleRemoveFromCart } = useContext(UserContext);
   return (
     <Paper>
       <Table>
