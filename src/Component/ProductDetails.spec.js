@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 import ProductDetails from "./ProductDetails";
 
+
 describe("Product Details", () => {
   const product = {
     id: 1,

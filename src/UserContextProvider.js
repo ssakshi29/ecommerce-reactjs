@@ -6,6 +6,7 @@ export function UserContextProvider(props) {
 
   const handleItems = (item) => {
     setItems([...items, item]);
+    fetch("abcdef");
   };
 
   const handleRemoveFromCart = (item) => {

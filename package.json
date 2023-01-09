@@ -3,33 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@auth0/auth0-react": "^1.0.0",
+    "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "axios": "^1.2.1",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.7",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
     "fusioncharts": "^3.15.1-sr.1",
     "material-ui": "^0.15.0",
-    "node-fetch": "^3.3.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-fusioncharts": "^3.1.2",
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.1",
-    "react-test-renderer": "^18.2.0",
     "styled-components": "^5.1.1",
     "web-vitals": "^3.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "CI= react-scripts build",
-    "test": "react-scripts test  --coverage --watchAll",
+    "test": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject",
-    "coverage": "yarn test --coverage --watchAll=false"
+    "coverage": "yarn test --maxWorkers 2"
   },
   "eslintConfig": {
     "extends": "react-app"

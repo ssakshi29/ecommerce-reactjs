@@ -1,5 +1,5 @@
 import Header from "./Component/Header";
-import Products from "./Component/PrdouctsList";
+import Products from "./Component/ProductsList";
 import fetch from "isomorphic-fetch";
 import React, { useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
