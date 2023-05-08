@@ -5,7 +5,6 @@ import "@testing-library/jest-dom/extend-expect";
 import { UserContext } from "../UserContext";
 
 const handleRemoveFromCart = jest.fn();
-
 describe("Cart Component", () => {
   const items = [
     {
@@ -17,7 +16,7 @@ describe("Cart Component", () => {
       total: "$549",
     },
   ];
-  it.skip("Should Match Snapshot", () => {
+  it("Should Match Snapshot", () => {
     const wrapper = render(
       <UserContext.Provider
         value={{ handleRemoveFromCart: handleRemoveFromCart, items }}

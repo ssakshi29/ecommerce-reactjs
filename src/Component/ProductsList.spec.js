@@ -1,8 +1,9 @@
-import { render, waitFor, act, fireEvent } from "@testing-library/react";
+/* eslint-disable no-unused-expressions */
+import { render, act, fireEvent } from "@testing-library/react";
 import ProductsList from "./ProductsList";
 
 describe("Products list layout", () => {
-  it("some test", async () => {
+  it("should call the handleItems function when the add to cart button is clicked", async () => {
     const promise = Promise.resolve({
       json: () =>
         Promise.resolve({
@@ -27,14 +28,16 @@ describe("Products list layout", () => {
       ok: true,
     });
     global.fetch = jest.fn(() => promise);
-    const { getByTestId } = render(<ProductsList />);
-    await act(() => {
+    const { findByTestId } = render(<ProductsList />);
+    act(() => {
       global.fetch;
     });
-    waitFor(() => expect(global.fetch).toBeCalled());
-    expect(getByTestId("add-to-cart")).toHaveTextContent("Add to Cart");
+    const addButton = await findByTestId("add-to-cart");
+    fireEvent.click(addButton);
+    expect(await findByTestId("add-to-cart")).toHaveTextContent("Add to Cart");
   });
-  it("should call the handleItems function when the add to cart button is clicked",async () => {
+
+  it("should call the handleShowDetails function when the showhide button is clicked", async () => {
     const promise = Promise.resolve({
       json: () =>
         Promise.resolve({
@@ -60,15 +63,12 @@ describe("Products list layout", () => {
     });
     global.fetch = jest.fn(() => promise);
     const wrapper = render(<ProductsList />);
-    await act(() => {
-        global.fetch;
-      });
-    let addButton = await wrapper.getByTestId("show-details-button");
-    // addButton.forEach((button) => {
-    expect(addButton).toHaveTextContent("show details");
-    fireEvent.click(addButton);
-    //expect(handleShowDetails)
-    expect(addButton).toHaveTextContent("hide details");
-    // });
+    act(() => {
+      global.fetch;
+    });
+    let showButton = await wrapper.findByTestId("show-details-button");
+    expect(showButton).toHaveTextContent("show details");
+    fireEvent.click(showButton);
+    expect(showButton).toHaveTextContent("hide details");
   });
 });
